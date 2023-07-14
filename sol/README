@@ -1,0 +1,31 @@
+06.11.2021
+336CA - PETRUC RARES
+                                TEMA 1 APD
+
+    Am inceput tema prin a modifica functia de read_input si a adauga
+bariere, vectorul de threaduri, de argumente, etc.
+    Pentru scalabilitate am urmarit urmatoarele lucruri:
+- buclele de for:
+    - pentru initializarea current_generation si next_generation
+    - pentru calcularea numarului de cromozomi a fiecarui individ
+    - pentru copierea indivizilor cu cel mai mare scor obtinut
+la functia de fitness, mutatii si incrucisare.
+(astfel am impartit operatiile in mod egal intre threadurile
+din program)
+    - am schimbat inclusiv semnatura functiei compute_fitness_function
+pentru a-i adauga delimitatorii de start si end pentru care voiam
+sa calculez scorul / fiecare thread.
+
+    Dificultati intalnite: Dupa ce am optimizat fiecare bucla for
+mai putin cea din cmpfunc, in caz ca res = 0, am incercat sa folosesc
+functia de merge sort implementata la laborator, insa am avut rezultate
+chiar mai slabe decat a implementarii secventiale.
+
+Astfel, am decis sa vad cat de des este rezultatul 0 la diferenta
+dintre scorul fitness a doi indivizi, iar spre surprinderea mea, se intra
+foarte des in blocul respectiv, motiv pentru care am decis sa calculez
+chromosomes_count in afara cmpfunc pentru a evita calculele repetate pentru
+anumiti indivizi.
+
+    Apreciere tema: Usoara spre medie (mi s-a parut de foarte mare finete
+optimizarea la nivelul functiei de comparare).
